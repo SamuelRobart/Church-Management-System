@@ -116,7 +116,6 @@
     --container-xs: 20rem;
     --container-2xl: 42rem;
     --container-6xl: 72rem;
-    --container-7xl: 80rem;
     --text-xs: .75rem;
     --text-xs--line-height: calc(1 / .75);
     --text-sm: .875rem;
@@ -727,10 +726,6 @@
     margin-top: calc(var(--spacing) * 2);
   }
 
-  .mt-3 {
-    margin-top: calc(var(--spacing) * 3);
-  }
-
   .mt-4 {
     margin-top: calc(var(--spacing) * 4);
   }
@@ -803,10 +798,6 @@
     height: calc(var(--spacing) * 2);
   }
 
-  .h-10 {
-    height: calc(var(--spacing) * 10);
-  }
-
   .h-14 {
     height: calc(var(--spacing) * 14);
   }
@@ -847,10 +838,6 @@
     max-height: 500px;
   }
 
-  .max-h-\[600px\] {
-    max-height: 600px;
-  }
-
   .w-2 {
     width: calc(var(--spacing) * 2);
   }
@@ -877,10 +864,6 @@
 
   .max-w-6xl {
     max-width: var(--container-6xl);
-  }
-
-  .max-w-7xl {
-    max-width: var(--container-7xl);
   }
 
   .max-w-screen {
@@ -953,10 +936,6 @@
 
   .justify-start {
     justify-content: flex-start;
-  }
-
-  .gap-0\.5 {
-    gap: calc(var(--spacing) * .5);
   }
 
   .gap-1 {
@@ -1244,10 +1223,6 @@
     object-fit: cover;
   }
 
-  .p-0\.5 {
-    padding: calc(var(--spacing) * .5);
-  }
-
   .p-1 {
     padding: calc(var(--spacing) * 1);
   }
@@ -1386,10 +1361,6 @@
   .text-xs {
     font-size: var(--text-xs);
     line-height: var(--tw-leading, var(--text-xs--line-height));
-  }
-
-  .text-\[8px\] {
-    font-size: 8px;
   }
 
   .text-\[10px\] {

@@ -24,6 +24,10 @@ const NAV_Dash = [
     {
         label: "Report",
         href: "/report"
+    },
+    {
+        label: "Report",
+        href: "/report"
     }
 ];
 const NavBarDash = ()=>{
@@ -40,27 +44,27 @@ const NavBarDash = ()=>{
                             children: link.label
                         }, void 0, false, {
                             fileName: "[project]/src/app/DashBoard/NavBarDash.jsx",
-                            lineNumber: 21,
+                            lineNumber: 22,
                             columnNumber: 15
                         }, ("TURBOPACK compile-time value", void 0))
                     }, void 0, false, {
                         fileName: "[project]/src/app/DashBoard/NavBarDash.jsx",
-                        lineNumber: 19,
+                        lineNumber: 20,
                         columnNumber: 13
                     }, ("TURBOPACK compile-time value", void 0))
                 }, link.href, false, {
                     fileName: "[project]/src/app/DashBoard/NavBarDash.jsx",
-                    lineNumber: 18,
+                    lineNumber: 19,
                     columnNumber: 11
                 }, ("TURBOPACK compile-time value", void 0)))
         }, void 0, false, {
             fileName: "[project]/src/app/DashBoard/NavBarDash.jsx",
-            lineNumber: 14,
+            lineNumber: 15,
             columnNumber: 5
         }, ("TURBOPACK compile-time value", void 0))
     }, void 0, false, {
         fileName: "[project]/src/app/DashBoard/NavBarDash.jsx",
-        lineNumber: 13,
+        lineNumber: 14,
         columnNumber: 5
     }, ("TURBOPACK compile-time value", void 0));
 };
