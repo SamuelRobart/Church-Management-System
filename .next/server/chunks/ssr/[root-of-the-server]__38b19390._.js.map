@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 3, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
+    {"offset": {"line": 15, "column": 0}, "map": {"version":3,"sources":["file:///E:/CMS/cms/src/app/page.tsx"],"sourcesContent":["import Header from '../layout/Header/Header'\n\nexport default function Home() {\n  return (\n    <div className=\"bg-amber-600 h-screen\">\n        \n    </div>\n  );\n}\n"],"names":[],"mappings":";;;;;;AAEe,SAAS;IACtB,qBACE,8OAAC;QAAI,WAAU;;;;;;AAInB","debugId":null}}]
+}
