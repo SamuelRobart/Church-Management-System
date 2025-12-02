@@ -5,7 +5,7 @@ const NAV_Dash = [
   { label: "Home", href: "/" },
   { label: "Schedule", href: "/schedule" },
   { label: "Report", href: "/report" },
-   { label: "Report", href: "/report" },
+   { label: "Reportuuu", href: "/report" },
 ];
 
 const NavBarDash = () => {
