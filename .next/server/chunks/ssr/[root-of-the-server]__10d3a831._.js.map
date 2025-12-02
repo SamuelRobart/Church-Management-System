@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 3, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
-    {"offset": {"line": 15, "column": 0}, "map": {"version":3,"sources":["file:///E:/CMS/cms/src/app/Profile/page.jsx"],"sourcesContent":["import React from 'react'\r\n\r\nconst page = () => {\r\n return (\r\n    < >\r\n\r\n        <div className=' absolute right-12 top-2.5 h-15 w-15 bg-amber-500 rounded-full '>\r\n\r\n        </div>\r\n\r\n    </>\r\n  )\r\n}\r\n\r\nexport default page\r\n\r\n"],"names":[],"mappings":";;;;;AAAA;;;AAEA,MAAM,OAAO;IACZ,qBACG;kBAEI,cAAA,8OAAC;YAAI,WAAU;;;;;;;AAMvB;uCAEe","debugId":null}}]
-}

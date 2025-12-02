@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 3, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
-    {"offset": {"line": 15, "column": 0}, "map": {"version":3,"sources":["file:///E:/CMS/cms/src/app/AdminDash/page.jsx"],"sourcesContent":["import React from 'react'\r\n\r\nconst AdminDash = () => {\r\n  return (\r\n    <div className='bg-red-600 w-4/4 rounded-lg mt-1'>AdminDash</div>\r\n  )\r\n}\r\n\r\nexport default AdminDash"],"names":[],"mappings":";;;;;AAAA;;;AAEA,MAAM,YAAY;IAChB,qBACE,8OAAC;QAAI,WAAU;kBAAmC;;;;;;AAEtD;uCAEe","debugId":null}}]
-}
