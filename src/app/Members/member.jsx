@@ -1,9 +1,9 @@
 
-import React, { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { FaUser, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaCalendar, FaEdit, FaCamera, FaTimes } from 'react-icons/fa'
 
-const member = () => {
+const Member = () => {
 
     const searchParams = useSearchParams()
   
@@ -78,4 +78,4 @@ const member = () => {
   )
 }
 
-export default member
+export default Member
