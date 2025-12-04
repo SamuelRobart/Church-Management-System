@@ -4,9 +4,9 @@ import Profile from './Profile'
 const page = () => {
   
     return(
-      <>
+      <div>
         <Profile/>
-      </>
+      </div>
     )
 }
 
