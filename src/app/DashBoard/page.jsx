@@ -4,14 +4,14 @@ import Footer from '../../layout/Footer/Footer'
 
 const page = () => {
   return (
-    <>
+    <div>
         <div>
           <DashBoard />
            
         </div>
        
         
-    </>
+    </div>
   )
 }
 

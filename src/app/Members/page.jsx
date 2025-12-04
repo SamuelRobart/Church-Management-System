@@ -1,11 +1,20 @@
-import React from 'react'
-import Member from './Member'
+'use client'
+
+import React, { Suspense } from 'react'
+import dynamic from 'next/dynamic'
+
+const Member = dynamic(() => import('./Member'), {
+  loading: () => <div className='w-full h-screen flex items-center justify-center'><p>Loading...</p></div>,
+  ssr: true
+})
 
 const page = () => {
   return (
-    <div className='bg-white w-full h-full rounded-lg flex items-start p-4 text-black text-2xl'>      
+    <Suspense fallback={<div className='w-full h-screen flex items-center justify-center'><p>Loading...</p></div>}>
+      <div className='bg-white w-full h-full rounded-lg flex items-start p-4 text-black text-2xl'>      
         <Member />
-    </div>
+      </div>
+    </Suspense>
   )
 }
 

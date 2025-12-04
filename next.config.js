@@ -1,9 +1,6 @@
-const isProd = process.env.NODE_ENV === 'production';
-const repoName = 'CMS';
-
 const nextConfig = {
-  output: 'export',
-  
+  reactStrictMode: true,
+  swcMinify: true,
 };
 
 export default nextConfig;
