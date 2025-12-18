@@ -1,6 +1,7 @@
 'use client'
 import React, { useState, useEffect } from 'react'
 import { FaCalendarAlt, FaClock, FaMapMarkerAlt, FaEdit, FaTrash, FaPlus, FaTimes, FaUsers } from 'react-icons/fa'
+import { api } from '@/services/api'
 
 const Event = () => {
   const [events, setEvents] = useState([])
@@ -27,15 +28,10 @@ const Event = () => {
   const fetchEvents = async () => {
     setLoading(true)
     try {
-      const response = await fetch('http://localhost:8080/api/events')
-      if (response.ok) {
-        const data = await response.json()
-        setEvents(data)
-      } else {
-        setErrorMessage('Failed to fetch events')
-      }
+      const data = await api.events.getAll()
+      setEvents(data)
     } catch (error) {
-      setErrorMessage('Error connecting to backend. Make sure Spring Boot server is running on port 8080.')
+      setErrorMessage('Error connecting to backend. Make sure Spring Boot server is running.')
       console.error('Error fetching events:', error)
     } finally {
       setLoading(false)
@@ -87,13 +83,7 @@ const Event = () => {
     setErrorMessage('')
     try {
       if (editingEventId) {
-        // Update event
-        const response = await fetch(`http://localhost:8080/api/events/${editingEventId}`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData)
-        })
-        
+        const response = await api.events.update(editingEventId, formData)
         if (response.ok) {
           const updatedEvent = await response.json()
           setEvents(events.map(event =>
@@ -101,22 +91,14 @@ const Event = () => {
           ))
         } else {
           setErrorMessage('Failed to update event')
-          console.error('Error updating event:', response.statusText)
         }
       } else {
-        // Create new event
-        const response = await fetch('http://localhost:8080/api/events/create', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData)
-        })
-        
+        const response = await api.events.create(formData)
         if (response.ok) {
           const newEvent = await response.json()
           setEvents([...events, newEvent])
         } else {
           setErrorMessage('Failed to create event')
-          console.error('Error creating event:', response.statusText)
         }
       }
       
@@ -150,15 +132,11 @@ const Event = () => {
       setLoading(true)
       setErrorMessage('')
       try {
-        const response = await fetch(`http://localhost:8080/api/events/${eventId}`, {
-          method: 'DELETE'
-        })
-        
+        const response = await api.events.delete(eventId)
         if (response.ok) {
           setEvents(events.filter(event => event.id !== eventId))
         } else {
           setErrorMessage('Failed to delete event')
-          console.error('Error deleting event:', response.statusText)
         }
       } catch (error) {
         setErrorMessage('Error deleting event. Make sure backend is running.')

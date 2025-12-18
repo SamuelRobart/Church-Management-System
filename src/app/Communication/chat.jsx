@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
+import { api } from '@/services/api';
 
 const styles = `
   .scrollbar-hide::-webkit-scrollbar {
@@ -23,12 +24,11 @@ const Chat = () => {
   const reactionEmojis = ['👍', '❤️', '😂', '😮', '😢', '🔥'];
 
   useEffect(() => {
-    fetch('http://localhost:8080/api/messages')
-      .then(res => res.json())
+    api.messages.getAll()
       .then(data => setMessages(data))
       .catch(err => console.error('Error loading history:', err));
 
-    const ws = new WebSocket('ws://localhost:8080/chat');
+    const ws = new WebSocket(api.getWebSocketUrl());
     wsRef.current = ws;
 
     ws.onopen = () => {

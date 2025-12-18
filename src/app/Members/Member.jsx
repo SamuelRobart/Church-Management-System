@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { FaUser, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaCalendar, FaEdit, FaCamera, FaTimes } from 'react-icons/fa'
+import { api } from '@/services/api'
 
 const Member = () => {
 
@@ -20,11 +21,8 @@ const Member = () => {
     
       const fetchAllUsers = async () => {
         try {
-          const response = await fetch('http://localhost:8080/api/users/getAllUser')
-          if (response.ok) {
-            const data = await response.json()
-            setAllUsers(data)
-          }
+          const data = await api.users.getAll()
+          setAllUsers(data)
         } catch (error) {
           console.error('Error fetching users:', error)
         }

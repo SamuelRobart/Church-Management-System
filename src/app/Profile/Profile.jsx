@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { FaUser, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaCalendar, FaEdit, FaCamera, FaTimes, FaSearch } from 'react-icons/fa'
 import CreateProfile from './CreateProfile'
+import {api} from '@/services/api'
 
 const Profile = () => {
   const searchParams = useSearchParams()
@@ -49,11 +50,8 @@ const Profile = () => {
 
   const fetchAllUsers = async () => {
     try {
-      const response = await fetch('http://localhost:8080/api/users/getAllUser')
-      if (response.ok) {
-        const data = await response.json()
-        setAllUsers(data)
-      }
+      const data = await api.users.getAll()
+      setAllUsers(data)
     } catch (error) {
       console.error('Error fetching users:', error)
     }
@@ -89,14 +87,9 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const method = editingUserId ? 'PUT' : 'POST'
-      const url = editingUserId ? `http://localhost:8080/api/users/create/${editingUserId}` : 'http://localhost:8080/api/users/create'
-      
-      const response = await fetch(url, {
-        method,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      })
+      const response = editingUserId 
+        ? await api.users.update(editingUserId, formData)
+        : await api.users.create(formData)
       
       if (response.ok) {
         await fetchAllUsers()
@@ -111,9 +104,7 @@ const Profile = () => {
   const handleDelete = async () => {
     if (window.confirm('Are you sure you want to delete this user?')) {
       try {
-        const response = await fetch(`http://localhost:8080/api/users/create/${editingUserId}`, {
-          method: 'DELETE'
-        })
+        const response = await api.users.delete(editingUserId)
         
         if (response.ok) {
           await fetchAllUsers()

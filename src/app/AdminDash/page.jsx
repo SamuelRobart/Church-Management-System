@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { FaUsers, FaCalendarAlt, FaDonate, FaChartLine, FaUsersCog, FaBullhorn, FaHandsHelping, FaImages, FaTimes } from 'react-icons/fa'
+import { api } from '@/services/api'
 
 const AdminDash = () => {
   const router = useRouter()
@@ -14,11 +15,13 @@ const AdminDash = () => {
     fetchUserCount()
   }, [])
 
-  const fetchUserCount = () => {
-    fetch('http://localhost:8080/api/users/count')
-      .then(res => res.json())
-      .then(count => setUserCount(count))
-      .catch(err => console.error(err))
+  const fetchUserCount = async () => {
+    try {
+      const count = await api.users.count()
+      setUserCount(count)
+    } catch (err) {
+      console.error(err)
+    }
   }
 
   const handleInputChange = (e) => {
@@ -28,11 +31,7 @@ const AdminDash = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const response = await fetch('http://localhost:8080/api/users/create', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData)
-      })
+      const response = await api.users.create(formData)
       
       if (response.ok) {
         setIsModalOpen(false)
