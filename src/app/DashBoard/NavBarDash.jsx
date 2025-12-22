@@ -4,7 +4,7 @@ import React from "react";
 const NAV_Dash = [
   { label: "Home", href: "/" },
   { label: "Schedule", href: "/schedule" },
-  { label: "Report", href: "/report" },
+  { label: "Report", href: "/register" },
    
 ];
 
